@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Credential Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+  <div class="max-w-4xl mx-auto my-8 bg-white shadow-lg rounded-lg">
+    <header class="bg-blue-600 text-white text-center py-4 rounded-t-lg">
+      <h1 class="text-2xl font-bold">Client Credential Collection</h1>
+      <p class="text-sm">Please provide the required details for each section.</p>
+    </header>
+
+    <form class="p-6 space-y-8"  action="{% url 'generate_doc' %}" method="POST">
+
+        {% csrf_token %}
+      <!-- Section: Figma -->
+      <section>
+        <h2 class="text-xl font-semibold text-blue-600 mb-4">Figma (UI/UX)</h2>
+        <p class="text-gray-600 mb-4">Select the UI/UX assets and requirements you'd like to provide:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="logo" name="figma_requirements" value="logo" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <span class="text-gray-700">Logo</span>
+            </label>
+          </div>
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="primary_color" name="figma_requirements" value="primary_color" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <span class="text-gray-700">Primary Color</span>
+            </label>
+          </div>
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="secondary_color" name="figma_requirements" value="secondary_color" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <span class="text-gray-700">Secondary Color</span>
+            </label>
+          </div>
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="color_scheme" name="figma_requirements" value="color_scheme" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <span class="text-gray-700">Color Scheme</span>
+            </label>
+          </div>
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="reference_website" name="figma_requirements" value="reference_website" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <span class="text-gray-700">Reference Website</span>
+            </label>
+          </div>
+
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="reference_website" name="figma_requirements" value="reference_website" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <span class="text-gray-700">Reference App</span>
+            </label>
+          </div>
+
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="icons" name="figma_requirements" value="icons" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <span class="text-gray-700">Icons</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      
+
+      <section>
+        <h2 class="text-xl font-semibold text-green-600 mb-4">Frontend</h2>
+        <p class="text-gray-600 mb-4">Select the social login options required for the frontend:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="facebook_login" name="frontend_social_login" value="facebook_login" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+              <span class="text-gray-700">Facebook Login</span>
+            </label>
+          </div>
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="google_login" name="frontend_social_login" value="google_login" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+              <span class="text-gray-700">Google Login</span>
+            </label>
+          </div>
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="apple_login" name="frontend_social_login" value="apple_login" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+              <span class="text-gray-700">Apple ID Login</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      
+      
+
+      <section>
+        <h2 class="text-xl font-semibold text-purple-600 mb-4">Backend</h2>
+        <p class="text-gray-600 mb-4">Select the backend-related requirements:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Mail Server -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="mail_server_access" name="backend_requirements" value="mail_server_access" class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500">
+              <span class="text-gray-700">Access to Mail Server (for OTP/Emails)</span>
+            </label>
+          </div>
+      
+          <!-- Payment Gateway -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="stripe_access" name="backend_requirements" value="stripe_access" class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500">
+              <span class="text-gray-700">Stripe Access (Payment Gateway)</span>
+            </label>
+          </div>
+      
+          <!-- Media Storage -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="cloudinary_access" name="backend_requirements" value="cloudinary_access" class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500">
+              <span class="text-gray-700">Cloudinary Access (Media Storage)</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      
+
+      <section>
+        <h2 class="text-xl font-semibold text-yellow-600 mb-4">Deployment</h2>
+        <p class="text-gray-600 mb-4">Select the deployment platform to be used:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Deployment: DigitalOcean -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="radio" id="digitalocean_access" name="deployment_requirements" value="digitalocean_access" class="w-4 h-4 text-yellow-600 border-gray-300 focus:ring-yellow-500">
+              <span class="text-gray-700">DigitalOcean</span>
+            </label>
+          </div>
+      
+          <!-- Deployment: PythonAnywhere -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="radio" id="pythonanywhere_access" name="deployment_requirements" value="pythonanywhere_access" class="w-4 h-4 text-yellow-600 border-gray-300 focus:ring-yellow-500">
+              <span class="text-gray-700">PythonAnywhere</span>
+            </label>
+          </div>
+      
+          <!-- Deployment: Hostinger -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="radio" id="hostinger_access" name="deployment_requirements" value="hostinger_access" class="w-4 h-4 text-yellow-600 border-gray-300 focus:ring-yellow-500">
+              <span class="text-gray-700">Hostinger</span>
+            </label>
+          </div>
+      
+          <!-- Deployment: VPS -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="radio" id="vps_access" name="deployment_requirements" value="vps_access" class="w-4 h-4 text-yellow-600 border-gray-300 focus:ring-yellow-500">
+              <span class="text-gray-700">Other VPS</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      
+      
+
+      <!-- Section: AI -->
+      <section>
+        <h2 class="text-xl font-semibold text-red-600 mb-4">AI</h2>
+        <p class="text-gray-600 mb-4">Select the AI-related requirements:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Link to Dataset -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="dataset_link" name="ai_requirements" value="dataset_link" class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500">
+              <span class="text-gray-700">Link to Dataset</span>
+            </label>
+          </div>
+      
+          <!-- OpenAI Key -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="openai_key" name="ai_requirements" value="openai_key" class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500">
+              <span class="text-gray-700">OpenAI Key</span>
+            </label>
+          </div>
+      
+          <!-- VAPI Key -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="vapi_key" name="ai_requirements" value="vapi_key" class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500">
+              <span class="text-gray-700">VAPI Key</span>
+            </label>
+          </div>
+      
+          <!-- Deepgram Key -->
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="deepgram_key" name="ai_requirements" value="deepgram_key" class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500">
+              <span class="text-gray-700">Deepgram Key</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      
+
+      <div class="text-center">
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Submit and Download
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("Form submitted successfully. Integrate this with your backend.");
+    }
+  </script>
+</body>
+</html>
